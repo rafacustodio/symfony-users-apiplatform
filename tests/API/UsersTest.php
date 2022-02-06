@@ -9,21 +9,21 @@ class UsersTest extends WebTestCase
     public function testGetUsers()
     {
         $client = static::createClient();
-        $client->request("GET", "/api/users");
+        $client->request("GET", "/users");
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
     public function testCreateError()
     {
         $client = static::createClient();
-        $client->jsonRequest("POST", "/api/users");
+        $client->jsonRequest("POST", "/users");
         $this->assertEquals(422, $client->getResponse()->getStatusCode());
     }
 
     public function testCreateEmailError()
     {
         $client = static::createClient();
-        $client->jsonRequest("POST", "/api/users", [
+        $client->jsonRequest("POST", "/users", [
             'email' => "rafael",
             'firstName' => "Rafael",
             "lastName" => "Custodio"
@@ -37,7 +37,7 @@ class UsersTest extends WebTestCase
     public function testGetNotFoundUser()
     {
         $client = static::createClient();
-        $client->request("GET", "/api/users/0");
+        $client->request("GET", "/users/0");
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
     }
 }

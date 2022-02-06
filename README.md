@@ -14,9 +14,9 @@ Users API users entirely using Symfony and API Platform to try it out and allow 
 
 ```
 docker-compose up --build -d
-docker exec -it symfony-users-api_php_1 /usr/bin/composer install
-docker exec -it symfony-users-api_php_1 /usr/bin/composer doctrine:database:create
-docker exec -it symfony-users-api_php_1 /usr/bin/composer doctrine:migrations:migrate
+docker exec -it symfony-users-apiplatform_php_1 /usr/bin/composer install
+docker exec -it symfony-users-apiplatform_php_1 php bin/console doctrine:database:create
+docker exec -it symfony-users-apiplatform_php_1 php bin/console doctrine:migrations:migrate
 ```
 
 ## API
